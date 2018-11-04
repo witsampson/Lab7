@@ -27,6 +27,7 @@ public class Driver extends Application {
 	ImageView itemImageView3;
 	ImageView itemImageView4;
 	ImageView itemImageView5;
+	String answer = "";
 
 	int x = 0, y = 0;
 	
@@ -311,7 +312,7 @@ public class Driver extends Application {
 		if(itemCollected > 35) {
 			Text myText1 = new Text();
 			Text myText = new Text();
-			String answer = "";
+			Button myButton;
 			
 			myText = new Text("GAME OVER");
 			myText.setFont(Font.font(40));
@@ -326,35 +327,44 @@ public class Driver extends Application {
 			txt.setLayoutX(50);
 			txt.setLayoutY(300);
 			
-			answer = txt.getText();
-			if(answer.equalsIgnoreCase("Y")) {
-				Text text = new Text("WELCOME TO MY GAME");
-				text.setFont(Font.font(40));
-				text.setLayoutX(35);
-				text.setLayoutY(100);
+			myButton = new Button("SUBMIT");
+			myButton.setLayoutX(50);
+			myButton.setLayoutY(375);
+			myButton.setOnAction(this::Restart);
+			
+			
+			public void Restart(ActionEvent args) {
+				if(answer.equalsIgnoreCase("Y")) {
+					Text text = new Text("WELCOME TO MY GAME");
+					text.setFont(Font.font(40));
+					text.setLayoutX(35);
+					text.setLayoutY(100);
+					
+					txt = new TextField("ENTER YOUR NAME");
+					txt.setLayoutX(175);
+					txt.setLayoutY(350);
+					
+					Button button = new Button("START GAME");
+					button.setLayoutX(200);
+					button.setLayoutY(250);
+					button.setOnAction(this::startGame);
+					
+					Text text1 = new Text("Use WASD to move!");
+					text1.setLayoutX(190);
+					text1.setLayoutY(450);
+					
+					Group root = new Group(text,button,txt,text1);
+					Scene scene = new Scene(root,500,500,Color.WHITE);
+					Stage PrimaryStage = new Stage();
+					PrimaryStage.setScene(scene);
+					PrimaryStage.show();
+				}
 				
-				txt = new TextField("ENTER YOUR NAME");
-				txt.setLayoutX(175);
-				txt.setLayoutY(350);
 				
-				Button button = new Button("START GAME");
-				button.setLayoutX(200);
-				button.setLayoutY(250);
-				button.setOnAction(this::startGame);
-				
-				Text text1 = new Text("Use WASD to move!");
-				text1.setLayoutX(190);
-				text1.setLayoutY(450);
-				
-				
-				
-				
-				Group root = new Group(text,button,txt,text1);
-				Scene scene = new Scene(root,500,500,Color.WHITE);
-				Stage PrimaryStage = new Stage();
-				PrimaryStage.setScene(scene);
-				PrimaryStage.show();
 			}
+			
+		
+			
 			
 			
 			Group root3 = new Group(myText,myText1,txt);
