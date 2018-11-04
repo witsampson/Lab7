@@ -11,8 +11,6 @@ public class enemy {
 		this.imagePath = imagePath;
 	}
 	
-	public void Movement() {
-		Movement move = new Movement(enemyName);
-	}
+	
 	
 }
