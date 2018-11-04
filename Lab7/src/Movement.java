@@ -1,71 +1,42 @@
+import javax.swing.KeyStroke;
+
+import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-//Wit Sampson
-// Data Created: 10/19/2018
+//Wit Sampson & Dustin Senger
+// Data Created: 11/03/2018
 //The purpose of this class is to give movement to the game
 public class Movement {
-	private String objectMoving;
-	playerOne pOne;
-	int xCord;
-	int yCord;
-	
-	
-	public Movement(String objectMoving) {
-		this.objectMoving = objectMoving;
-	}
-	
-	public Movement(playerOne pOne,int xCord, int yCord) {
-		this.pOne = pOne;
-		this.xCord = xCord;
-		this.yCord = yCord;
-	}
-	
-	public Movement(playerOne pOne) {
-		this.pOne = pOne;
-	}
-	
-	public void setxCord(int xCord) {
-		this.xCord = xCord;
+	private int x;
+	private int y;
+	private boolean yes = true;
+	private boolean no = false;
+	public Movement(int x, int y) {
+		this.x = x;
+		this.y = y;  
 	}
 
-	public void setyCord(int yCord) {
-		this.yCord = yCord;
+	public int getX() {
+		return x;
 	}
 
-	public void movement(KeyEvent event) 
-	{
-		KeyCode myCode = event.getCode();
-		
-		if(myCode == KeyCode.A)
-		{
-			xCord-=10;
-			
-			
-		}
-		else if(myCode == KeyCode.D)
-		{
-			xCord+=10;
-		
-		}
-		else if(myCode == KeyCode.S)
-		{
-			yCord+=10;
-			
-			
-		}
-		else if(myCode == KeyCode.W)
-		{
-			yCord-=10;
-		}
-		
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
 	}
 	
-
-	
+	public void hitDetected(boolean yes) {
+		this.yes = true;
+		this.no = false;
+	}
 	
 }
-
-	
-	
 
