@@ -312,7 +312,7 @@ public class Driver extends Application {
 			Text myText1 = new Text();
 			Text myText = new Text();
 			String answer = "";
-			do {
+			
 			myText = new Text("GAME OVER");
 			myText.setFont(Font.font(40));
 			myText.setLayoutX(50);
@@ -325,7 +325,36 @@ public class Driver extends Application {
 			txt = new TextField("Y/N");
 			txt.setLayoutX(50);
 			txt.setLayoutY(300);
-			}while(answer.equalsIgnoreCase("Y"));
+			
+			answer = txt.getText();
+			if(answer.equalsIgnoreCase("Y")) {
+				Text text = new Text("WELCOME TO MY GAME");
+				text.setFont(Font.font(40));
+				text.setLayoutX(35);
+				text.setLayoutY(100);
+				
+				txt = new TextField("ENTER YOUR NAME");
+				txt.setLayoutX(175);
+				txt.setLayoutY(350);
+				
+				Button button = new Button("START GAME");
+				button.setLayoutX(200);
+				button.setLayoutY(250);
+				button.setOnAction(this::startGame);
+				
+				Text text1 = new Text("Use WASD to move!");
+				text1.setLayoutX(190);
+				text1.setLayoutY(450);
+				
+				
+				
+				
+				Group root = new Group(text,button,txt,text1);
+				Scene scene = new Scene(root,500,500,Color.WHITE);
+				Stage PrimaryStage = new Stage();
+				PrimaryStage.setScene(scene);
+				PrimaryStage.show();
+			}
 			
 			
 			Group root3 = new Group(myText,myText1,txt);
